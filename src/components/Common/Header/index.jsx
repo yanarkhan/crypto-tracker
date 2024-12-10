@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { navLinks } from "@/functions/data";
 import { FaBars } from "react-icons/fa";
@@ -35,26 +36,26 @@ const Header = () => {
   return (
     <header className="bg-black shadow-sm relative">
       <div className="container mx-auto max-w-screen-xl px-4 py-4 flex items-center justify-between">
-        <a href="/" className="text-xl text-white font-bold tracking-wide">
+        <Link to="/" className="text-xl text-white font-bold tracking-wide">
           Crypto<span className="text-blue">Tracker</span>
-        </a>
+        </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden space-x-4 items-center md:flex">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.name}
-              href={link.href}
+              to={link.href}
               className="text-white font-medium transition-colors duration-300 hover:text-blue tracking-wide"
             >
               {link.name}
-            </a>
+            </Link>
           ))}
           <div className="hidden md:block">
             <Button variant="default">
-              <a href="/dashboard" className="tracking-wider">
+              <Link to="/dashboard" className="tracking-wider">
                 Dashboard
-              </a>
+              </Link>
             </Button>
           </div>
         </nav>
@@ -79,19 +80,19 @@ const Header = () => {
       >
         <div className="p-6 pt-20 space-y-4">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.name}
-              href={link.href}
+              to={link.href}
               className="block text-black hover:text-blue transition-colors duration-300 text-lg"
               onClick={toggleMobileMenu}
             >
               {link.name}
-            </a>
+            </Link>
           ))}
 
           <div className="mt-6">
             <Button asChild className="w-full">
-              <a href="/dashboard">Dashboard</a>
+              <Link to="/dashboard">Dashboard</Link>
             </Button>
           </div>
         </div>
